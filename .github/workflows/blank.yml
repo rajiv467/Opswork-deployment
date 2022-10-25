@@ -39,7 +39,8 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           - name: Deploy to AWS CloudFormation
-      - uses: aws-actions/aws-cloudformation-github-deploy@v1
+      - name: Deploy to AWS CloudFormation    
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: MyStack
           template: vpc.yaml
