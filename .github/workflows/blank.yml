@@ -45,6 +45,8 @@ jobs:
     - name: Create ec2 instance
       run : |
        #aws ec2 run-instances --image-id ami-09d3b3274b6c5d4aa --count 1 --instance-type t2.micro --key-name Chef-Key --security-group-ids sg-0f72ec7d4025effe2 --subnet-id subnet-05611fba078588b9d
+       aws ec2 describe-images \
+       --filters "Name=platform,Values=windows" "Name=root-device-type,Values=ebs" 
        aws ec2 run-instances \
        --image-id ami-09d3b3274b6c5d4aa \
        --instance-type t2.micro \
@@ -56,4 +58,5 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.REGION}}
+        
         
