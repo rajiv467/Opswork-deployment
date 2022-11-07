@@ -44,11 +44,3 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.region}}
         
-     # Deploy to AWS CloudFormation 
-    - name: Deploy to AWS CloudFormation    
-      uses: aws-actions/aws-cloudformation-github-deploy@v1
-      with:
-        name: MyStack
-        template: newvpc.yaml
-#           parameter-overrides: "MyParam1=myValue,MyParam2=${{ secrets.MY_SECRET_VALUE }}"
-
